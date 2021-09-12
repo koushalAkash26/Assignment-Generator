@@ -1,53 +1,72 @@
 body {
-    background-color: rgba(0,0,0,0.1);
-  }
-  
-  /* styling paper */
-  #paper {
-    width: 600px;
-    height: 700px;
-    position: relative;
-    margin: 20px auto;
-    padding-top: 40px;
-    padding-bottom: 40px;
-    background-color: white;
-    box-shadow: 0px 0px 5px 0px #888;
-  }
-  
-  /* styling red vertical line */
-  #paper::before {
-    content: '';
-    width: 2px;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    left: 40px;
-    background-color: rgba(255,0,0,0.6);
-  }
-  
-  /* styling blue horizontal lines */
-  #pattern {
-    height: 100%;
-    background-image: repeating-linear-gradient(white 0px, white 24px, teal 25px);
-  }
-  
-  /* styling text content */
-  #content {
-    padding-top: 6px;
-    padding-left: 56px;
-    padding-right: 16px;
-    line-height: 25px;
-    font-family: 'Dancing Script', cursive;
-    font-size: 19px;
-    letter-spacing: 1px;
-    word-spacing: 5px;
-  }
-  #inputBox{
-      
-      min-height: 400px;
-      min-width: 800px;
-      overflow-y: scroll;
-      overflow-x: scroll;
-      border: 1px solid grey;
+  background-color: rgba(0, 0, 0, 0.1);
+}
 
-  }
+/* styling paper */
+.paper {
+  
+  width: 400px;
+  height: calc(11.7 * 400px / 8.3); /* A4 Ratio */
+  background: #fff;
+  border: 1px solid var(--elevation-background);
+  font-size: 10pt;
+  position: relative;
+  top: 0px;
+  font-family: var(--handwriting-font);
+  color: var(--ink-color);
+  line-height: 1.5em;
+  overflow-y: auto;
+  scrollbar-color: transparent;
+  scrollbar-width: thin;
+}
+
+
+
+/* styling blue horizontal lines */
+.margined .topMargin  {
+  height: 50px;
+  border-bottom: 2px solid  rgba(255, 0, 0, 0.6);;
+  width: 100%;
+  display: block;
+  overflow-y: auto;
+  
+}
+.left-margin-and-content {
+  min-height: calc(100% - 50px);
+  /*margin-top: 6px;*/
+  margin-left: 56px;
+  /*margin-right: 16px;*/
+  padding: 5px;
+  line-height: 25px;
+  font-family: "Dancing Script", cursive;
+  font-size: 19px;
+  letter-spacing: 1px;
+  word-spacing: 5px;
+  
+  
+  
+  
+}
+.margined .leftMargin {
+  width: 50px;
+  height: 100%;
+  display: inline-block;
+  border-right: 2px solid pink;
+  top: 0px;
+  padding-top: 50px;
+  /*overflow-x: hidden;*/
+  position: absolute;
+  left: 0;
+}
+.bgParent{
+  background-image: repeating-linear-gradient(white 0px, white 24px, teal 25px);
+}
+
+
+#inputBox {
+  min-height: 400px;
+  min-width: 800px;
+  overflow-y: scroll;
+  overflow-x: scroll;
+  border: 1px solid grey;
+}
