@@ -9,12 +9,11 @@ body {
   height: calc(11.7 * 400px / 8.3); /* A4 Ratio */
   background: #fff;
   border: 1px solid var(--elevation-background);
-  font-size: 10pt;
+  font-size: 10px;
   position: relative;
   top: 0px;
   font-family: var(--handwriting-font);
   color: var(--ink-color);
-  line-height: 1.5em;
   overflow-y: auto;
   scrollbar-color: transparent;
   scrollbar-width: thin;
@@ -33,15 +32,10 @@ body {
 }
 .left-margin-and-content {
   min-height: calc(100% - 50px);
-  /*margin-top: 6px;*/
   margin-left: 56px;
-  /*margin-right: 16px;*/
-  padding: 5px;
-  line-height: 25px;
-  font-family: "Dancing Script", cursive!important;
-  font-size: 19px;
-  letter-spacing: 1px;
-  word-spacing: 5px;
+  margin-right: 16px;
+  line-height: 1.8em;
+
   
   
   
@@ -59,9 +53,16 @@ body {
   position: absolute;
   left: 0;
 }
-.paper .bgParent{
-  background-image: repeating-linear-gradient(white 0px, white 24px, teal 25px);
-  min-height: 100%;
+.content{
+  padding: 5px;
+  width:100%;
+}
+.paper.lines .bgParent{
+ /*background-image: repeating-linear-gradient(white 0px, white 24px, teal 25px);*/
+ background-image: linear-gradient(#999 0.05em,transparent 0.1em);
+background-color: unset !important;
+background-size: 100% 1.8em;
+min-height: 100%;
  
   
   

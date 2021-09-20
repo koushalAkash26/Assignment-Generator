@@ -1,5 +1,6 @@
 
 let pageElement=document.querySelector('.paper')
+let pageElement1=document.querySelector('.cont')
 let outputImages = [];
   
   const EVENT_MAP = {
@@ -84,7 +85,7 @@ function renderOutput(outputImages) {
   };
   
     /** Function html2canvas comes from a library html2canvas which is included in the index.html */
-    const canvas =  await(html2canvas(pageElement, options));
+    const canvas =  await(html2canvas(pageElement1, options));
   
     /** Send image data for modification if effect is scanner */
    /* if (document.querySelector('#page-effects').value === 'scanner') {
