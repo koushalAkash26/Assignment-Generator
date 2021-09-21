@@ -85,7 +85,7 @@ function renderOutput(outputImages) {
   };
   
     /** Function html2canvas comes from a library html2canvas which is included in the index.html */
-    const canvas =  await(html2canvas(pageElement1, options));
+    const canvas =  await(html2canvas(pageElement, options));
   
     /** Send image data for modification if effect is scanner */
    /* if (document.querySelector('#page-effects').value === 'scanner') {
