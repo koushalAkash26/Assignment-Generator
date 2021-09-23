@@ -20,6 +20,66 @@ for (const eventSelector in EVENT_MAP) {
         EVENT_MAP[eventSelector].action
       );
 }
+function moveRight(pos){
+  if(pos===outputImages.length-1){
+    renderOutput(outputImages)
+  }
+  else{
+  [outputImages[pos],outputImages[pos+1]]=[outputImages[pos+1],outputImages[pos]]
+  renderOutput(outputImages)
+  
+  }
+
+}
+function moveLeft(pos){
+  if(pos===0){
+    renderOutput(outputImages)
+  }
+  else{
+  [outputImages[pos-1],outputImages[pos]]=[outputImages[pos],outputImages[pos-1]]
+  renderOutput(outputImages)
+  
+  }
+
+}
+
+function setRemoveImageListeners() {
+  document
+    .querySelectorAll('.output-image-container > .close-button')
+    .forEach((closeButton) => {
+      closeButton.addEventListener('click', (e) => {
+        outputImages.splice(Number(e.target.dataset.index), 1);
+        // Displaying no. of images on deletion
+        if (outputImages.length >= 0) {
+          document.querySelector('#output-header').textContent =
+            'Output' +
+            (outputImages.length ? ' ( ' + outputImages.length + ' )' : '');
+            renderOutput(outputImages);
+            setRemoveImageListeners()
+        }
+        if(outputImages.length===0){
+          document.getElementById("output").innerHTML=`Click "Generate Image" Button to generate new image.`
+        }
+        
+      })
+    })
+    document.querySelectorAll('.output-image-container .move-right').forEach((rightButton)=>{
+      rightButton.addEventListener('click',(e)=>{
+          moveRight(Number(e.target.dataset.index))
+          setRemoveImageListeners()
+          
+          
+      })
+    })
+    document.querySelectorAll('.output-image-container .move-left').forEach((leftButton)=>{
+      leftButton.addEventListener('click',(e)=>{
+          moveLeft(Number(e.target.dataset.index))
+          setRemoveImageListeners()
+          
+      })
+    })
+    
+  }
 function renderOutput(outputImages) {
     if (outputImages.length <= 0) {
       /*document.querySelector('#output').innerHTML =
@@ -36,7 +96,7 @@ function renderOutput(outputImages) {
       .map(
         (outputImageCanvas, index) => /* html */ `
       <div 
-        class="output-image-container" 
+        class="output-image-container" data-cont="${index}" 
         style="position: relative;display: inline-block;"
       >
         <button 
@@ -153,6 +213,8 @@ function renderOutput(outputImages) {
     
       
       renderOutput(outputImages);
+      setRemoveImageListeners()
+
       
     }
     

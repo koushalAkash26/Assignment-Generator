@@ -76,6 +76,7 @@ min-height: 100%;
   border: 2px solid#999 ;
   border-radius: 10px;
   background-color: whitesmoke;
+  overflow-x: auto;
 }
 .output .close-button {
   position: absolute;
@@ -98,17 +99,18 @@ min-height: 100%;
   font-size: 0.9rem;
   padding: 10px 15px;
   border-radius: 8px;
+  text-decoration: none;
 }
-#download-as-pdf-button {
+#downloadpdfbutton {
   display: none;
 }
-#download-as-pdf-button.show {
+#downloadpdfbutton.show {
   display: inline-block;
 }
-#delete-all-button {
+#deleteAllButton {
   display: none;
 }
-#delete-all-button.show {
+#deleteAllButton.show {
   display: inline-block;
 }
 .output img {
