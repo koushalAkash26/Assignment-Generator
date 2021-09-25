@@ -1,5 +1,7 @@
 body {
   background-color:white;
+  --handwritingFont: 'Homemade Apple', cursive;
+  --inkColor: #000f55;
 }
 
 /* styling paper */
@@ -12,8 +14,8 @@ body {
   font-size: 15px;
   position: relative;
   top: 0px;
-  font-family: var(--handwriting-font);
-  color: var(--ink-color);
+  font-family: var(--handwritingFont);
+  color: var(--inkColor);
   overflow-y: auto;
   scrollbar-color: transparent;
   scrollbar-width: thin;
@@ -118,16 +120,20 @@ min-height: 100%;
   margin: 0px 10px;
 }
 .mainContainer{
-  display: flex;
-  flex-direction: row;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
 }
 .cont{
-  padding: 10px;
+  padding-left: 10px;
+  padding-bottom: 10px;
+  padding-bottom: 10px;
+  padding-top: 0px;
 }
 .cont2{
   padding:10px;
   margin-left:30px;
   width: 100%;
+  margin-top: 35px;
 
 }
 .cont2-mainPart{
@@ -143,5 +149,88 @@ min-height: 100%;
 input[type="file"]{
   line-height:1;
 }
+.sh-1,.sh-2,.sh-3,.sh-4{
+  display:flex;
+  flex-direction: row;
+  border:2px solid #999;
+  border-radius: 10px;
+  
+}
+.sh-4{
+  justify-content: space-around;
+}
+.fontChoice,.uploadSection{
+  min-width:50%;
+  padding:10px;
+}
+.fontSize,.fontColor,.paperSize,.resolution,.paperEffect{
+  min-width:20%;
+  padding:10px;
+}
+.wordSpacing,.letterSpacing,.Va{
+  min-width:33.3%;
+  padding:10px;
+
+}
+.ruled-on,.margined-on{
+  padding:10px
+}
+.highLight{
+  box-shadow: 0px 8px 32px 0px  ;
+  width: 400px;
+  height: calc(11.7 * 400px / 8.3);
+}
+.mainHeading{
+  text-align:center;
+  font-family: 'Sofia', cursive;
+}
+button{
+  border-radius: 10px;
+}
+@media only screen and (max-width: 1100px){
+  .mainContainer{
+    grid-template-columns: 1fr;
+  }
+  .sh-1,.sh-2,.sh-3,.sh-4{
+    display:flex;
+    flex-direction:column;
+    border:2px solid #999;
+    border-radius: 10px;
+    
+  }
+  .sh-4{
+    justify-content: space-around;
+  }
+  .fontChoice,.uploadSection{
+    min-width:100%;
+    padding:10px;
+  }
+  .fontSize,.fontColor,.paperSize,.resolution,.paperEffect{
+    min-width:100%;
+    padding:10px;
+  }
+  .wordSpacing,.letterSpacing,.Va{
+    min-width:100%;
+    padding:10px;
+  
+  }
+  .highLight{
+    width: 400px;
+    height: calc(11.7 * 400px / 8.3);
+    
+  }
+  .cont2{
+    margin-left:0px;
+    
+  
+  }
+  .output{
+    min-width:100%;
+  }
+  
+
+  
+}
+
 
 
