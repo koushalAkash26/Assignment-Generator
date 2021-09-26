@@ -11,7 +11,7 @@ body {
   height: calc(11.7 * 400px / 8.3); /* A4 Ratio */
   background: #fff;
   border: 1px solid var(--elevation-background);
-  font-size: 15px;
+  font-size: 10pt;
   position: relative;
   top: 0px;
   font-family: var(--handwritingFont);
@@ -34,9 +34,11 @@ body {
 }
 .left-margin-and-content {
   min-height: calc(100% - 50px);
-  margin-left: 56px;
-  margin-right: 16px;
-  line-height: 1.8em;
+  padding: 5px;
+  margin: 0px;
+  padding-left: 55px;
+  
+  line-height: 1.5em;
 
   
   
@@ -56,14 +58,15 @@ body {
   left: 0;
 }
 .content{
-  padding: 5px;
   width:100%;
+  
+  
 }
 .paper.lines .bgParent{
  /*background-image: repeating-linear-gradient(white 0px, white 24px, teal 25px);*/
  background-image: linear-gradient(#999 0.05em,transparent 0.1em);
 background-color: unset !important;
-background-size: 100% 1.8em;
+background-size: 100% 1.5em;
 min-height: 100%;
  
   

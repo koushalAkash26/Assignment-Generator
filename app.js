@@ -1,6 +1,7 @@
 
 let pageElement=document.querySelector('.paper')
 let pageElement1=document.querySelector('.cont')
+const customTextStyle = (attrib, v) => (pageElement.style[attrib] = v);
 let outputImages = [];
   
   const EVENT_MAP = {
@@ -10,8 +11,36 @@ let outputImages = [];
         e.preventDefault();
         generateImages();
       }
+    },
+      '#font--Style': {
+        on: 'change',
+        action: (e) =>
+          document.body.style.setProperty('--handwritingFont', e.target.value)
+          
+      },
+      '#fontFile': {
+        on: 'change',
+        action: (e) => addFontFromFile(e.target.files[0])
+      },
+    '#fontSize':{
+      on:'change',
+      action: (e)=>{
+        if (e.target.value > 30) {
+          alert('Font-size is too big try upto 30');
+        }else{
+        customTextStyle('fontSize', e.target.value + 'pt');
+        e.preventDefault();
+        }
+      }
+    },
+    '#fontColor':{
+      on:'change',
+      action: (e)=>{
+        document.body.style.setProperty('--inkColor', e.target.value)
+      }
     }
-}
+    }
+
 for (const eventSelector in EVENT_MAP) {
     document
       .querySelector(eventSelector)
@@ -19,6 +48,17 @@ for (const eventSelector in EVENT_MAP) {
         EVENT_MAP[eventSelector].on,
         EVENT_MAP[eventSelector].action
       );
+}
+function addFontFromFile(fileObj) {
+  const reader = new FileReader();
+  reader.onload = (e) => {
+    const newFont = new FontFace('temp-font', e.target.result);
+    newFont.load().then((loadedFace) => {
+      document.fonts.add(loadedFace);
+      pageElement.style.fontFamily = 'temp-font';
+    });
+  };
+  reader.readAsArrayBuffer(fileObj);
 }
 function moveRight(pos){
   if(pos===outputImages.length-1){
@@ -217,5 +257,7 @@ function renderOutput(outputImages) {
 
       
     }
+    let test=document.querySelector('#font--Style')
+    console.log(test)
     
     
