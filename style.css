@@ -19,6 +19,11 @@ body {
   overflow-y: auto;
   scrollbar-color: transparent;
   scrollbar-width: thin;
+  
+}
+.lines{
+ 
+  background-image: linear-gradient(#999 0.05em,transparent 0.1em);
 }
 
 
@@ -34,7 +39,6 @@ body {
 }
 .left-margin-and-content {
   min-height: calc(100% - 50px);
-  padding: 5px;
   margin: 0px;
   padding-left: 55px;
   
@@ -44,6 +48,11 @@ body {
   
   
   
+  
+}
+.margined .content{
+  padding: 5px;
+  margin: 0px;
   
 }
 .margined .leftMargin {
@@ -58,13 +67,16 @@ body {
   left: 0;
 }
 .content{
-  width:100%;
+  
+  position:absolute;
+  top:54px;
+
   
   
 }
-.paper.lines .bgParent{
+ .bgParent{
  /*background-image: repeating-linear-gradient(white 0px, white 24px, teal 25px);*/
- background-image: linear-gradient(#999 0.05em,transparent 0.1em);
+ /*background-image: linear-gradient(#999 0.05em,transparent 0.1em);*/
 background-color: unset !important;
 background-size: 100% 1.5em;
 min-height: 100%;
@@ -106,10 +118,11 @@ min-height: 100%;
   border-radius: 8px;
   text-decoration: none;
 }
-#downloadpdfbutton {
+
+#downloadpdfButton {
   display: none;
 }
-#downloadpdfbutton.show {
+#downloadpdfButton.show {
   display: inline-block;
 }
 #deleteAllButton {
@@ -125,19 +138,24 @@ min-height: 100%;
 .mainContainer{
   display: grid;
   grid-template-columns: 1fr 2fr;
+  
 }
 .cont{
   padding-left: 10px;
   padding-bottom: 10px;
-  padding-bottom: 10px;
-  padding-top: 0px;
+  padding-top: 30px;
+
 }
 .cont2{
-  padding:10px;
+  padding:5px;
   margin-left:30px;
-  width: 100%;
-  margin-top: 35px;
 
+  
+
+}
+.subHeading h5{
+  padding-left: 5px;
+  padding-top: 40px;
 }
 .cont2-mainPart{
   border-radius: 30px;
@@ -185,14 +203,46 @@ input[type="file"]{
 }
 .mainHeading{
   text-align:center;
-  font-family: 'Sofia', cursive;
+  font-family: 'Varela Round', sans-serif;
+  font-weight: 700;
+  border:2px solid;
+  box-shadow: 0px 8px 20px 0px  ;
+
 }
 button{
   border-radius: 10px;
 }
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  display: none;
+}
+/*.shadow {
+  box-shadow: 12px 12px 24px 0 rgba(0, 0, 0, 0.2);
+}*/
+.overlay.shadows {
+  display: block;
+  
+}
+li a{
+  text-decoration: none;
+}
+label a{
+  text-decoration: none;
+}
+#procedure{
+  padding: 10px;
+}
 @media only screen and (max-width: 1100px){
   .mainContainer{
     grid-template-columns: 1fr;
+  }
+  .cont{
+    min-width:100%;
+    padding-top:0px;
   }
   .sh-1,.sh-2,.sh-3,.sh-4{
     display:flex;
@@ -217,10 +267,16 @@ button{
     padding:10px;
   
   }
+  .paper{
+    max-width: 100%;
+  }
   .highLight{
-    width: 400px;
+    max-width: 100%;
     height: calc(11.7 * 400px / 8.3);
     
+  }
+  #downloadpdfButton{
+    margin-bottom: 10px;
   }
   .cont2{
     margin-left:0px;
@@ -228,11 +284,39 @@ button{
   
   }
   .output{
-    min-width:100%;
+    max-width:100%;
+    font-size: 10px;
   }
   
 
   
+}
+@media only screen and (max-width: 600px){
+  .mainHeading h1{
+    font-size: 20px !important;
+    font-weight: 500 !important;
+
+  }
+  .subHeading h5{
+    font-size:15px !important ;
+    font-weight: 500 !important;
+    padding-top: 30px !important;
+  }
+  .mainHeading{
+    text-align:center;
+    font-family: 'Varela Round', sans-serif;
+    font-weight: 700;
+    border:2px solid;
+    box-shadow: 0px 8px 10px 0px  ;
+    padding-top:10px;
+    border-radius: 10px;
+  
+  }
+  .cont{
+    min-width:100%;
+    padding-top:0px;
+    padding-left: 0px;
+  }
 }
 
 
