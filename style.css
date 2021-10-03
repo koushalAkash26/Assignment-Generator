@@ -21,9 +21,11 @@ body {
   scrollbar-width: thin;
   
 }
-.lines{
- 
+.paper.lines .left-margin-and-content{
   background-image: linear-gradient(#999 0.05em,transparent 0.1em);
+  background-color: unset !important;
+  background-size: 100% 1.5em;
+
 }
 
 
@@ -38,11 +40,15 @@ body {
   
 }
 .left-margin-and-content {
-  min-height: calc(100% - 50px);
+  /*min-height: calc(100% - 50px);*/
+  min-height: 100%;
   margin: 0px;
-  padding-left: 55px;
-  
+  padding: 0px;
+  /*padding-left: 55px;*/
   line-height: 1.5em;
+  /*background-color: unset !important;
+  background-size: 100% 1.5em;
+  min-height: 100%;*/
 
   
   
@@ -66,25 +72,28 @@ body {
   position: absolute;
   left: 0;
 }
+
 .content{
-  
   position:absolute;
   top:54px;
+  padding-left: 55px  !important;
 
   
   
 }
- .bgParent{
+ /*.bgParent{
  /*background-image: repeating-linear-gradient(white 0px, white 24px, teal 25px);*/
  /*background-image: linear-gradient(#999 0.05em,transparent 0.1em);*/
-background-color: unset !important;
+/*background-color: unset !important;
 background-size: 100% 1.5em;
-min-height: 100%;
+min-height: 100%;}*/
+
+
  
   
   
   
-}
+
 .output {
   width: 90%;
   padding: 30px;

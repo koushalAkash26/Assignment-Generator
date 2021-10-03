@@ -11,6 +11,7 @@ let outputImages = [];
       on: 'submit',
       action: (e) => {
         e.preventDefault();
+      
         generateImages();
       }
     },
@@ -83,11 +84,11 @@ let outputImages = [];
   '#line-on': {
     on: 'change',
     action: () => {
-      if(pattern.classList.contains("lines")){
-        pattern.classList.remove('lines');
+      if(pageElement.classList.contains("lines")){
+        pageElement.classList.remove('lines');
       }
       else{
-        pattern.classList.add('lines');
+        pageElement.classList.add('lines');
       }
     }
   },
@@ -147,9 +148,12 @@ function isFontErrory() {
 function formatText(event) {
   event.preventDefault();
   const text = event.clipboardData
-    .getData('text/plain')
-    .replace(/\n/g, '<br/>');
+  .getData('text/plain')
+  .replace(/\n/g, '<br/>');
   document.execCommand('insertHTML', false, text);
+  console.log('hello',`${document.getElementsByClassName('content')[0].scrollHeight 
+}px`)
+  document.getElementsByClassName('left-margin-and-content')[0].style.setProperty('min-height' ,`${document.getElementsByClassName('content')[0].scrollHeight }px`)
 }
 function deleteAll(){
   outputImages=[]
