@@ -120,9 +120,9 @@ for (const eventSelector in EVENT_MAP) {
       );
 }
 function verticalAlign(val){
-  console.log(parseInt(val))
+  
   if(parseInt(val)<0){
-    console.log("hi")
+    
     res=55+parseInt(val)
     let value=res+"px"
     return value
@@ -133,26 +133,13 @@ function verticalAlign(val){
     return value
   }
 }
-function isFontErrory() {
-  // SOme fonts have padding top errors, this functions tells you if the current font has that;
-  const currentHandwritingFont = document.body.style.getPropertyValue(
-    '--handwritingFont'
-  );
-  console.log(currentHandwritingFont)
-  
-  return (
-    currentHandwritingFont === '' ||
-    currentHandwritingFont.includes('Homemade Apple')
-  );
-}
+
 function formatText(event) {
   event.preventDefault();
   const text = event.clipboardData
   .getData('text/plain')
   .replace(/\n/g, '<br/>');
   document.execCommand('insertHTML', false, text);
-  console.log('hello',`${document.getElementsByClassName('content')[0].scrollHeight 
-}px`)
   document.getElementsByClassName('left-margin-and-content')[0].style.setProperty('min-height' ,`${document.getElementsByClassName('content')[0].scrollHeight }px`)
 }
 function deleteAll(){
@@ -214,7 +201,7 @@ function contrastImage(imageData, contrast) {
 function applyPaperStyles() {
  
 
-  // Adding class shadows even if effect is scanner
+  
   if (document.querySelector('#effect').value === 'scanner') {
     overlayEl.classList.add('shadows');
   } else {
@@ -222,38 +209,31 @@ function applyPaperStyles() {
   }
 
   if (document.querySelector('#effect').value === 'scanner') {
-    // For scanner, we need shadow between 50deg to 120deg only
-    // Since If the lit part happens to be on margins, the margins get invisible
-    console.log("poda loosu")
+   
+   
     overlayEl.style.background = `linear-gradient(${
       Math.floor(Math.random() * (120 - 50 + 1)) + 50
     }deg, #0008, #0000)`;
   } else if (document.querySelector('#effect').value === 'shadows') {
-    console.log("bruhhh")
+
     overlayEl.style.background = `linear-gradient(${
       Math.random() * 360
     }deg, #0008, #0000)`;
   }
-  console.log(document.querySelector('#fontFile').files.length)
-  console.log(isFontErrory())
-  /*if (isFontErrory() && document.querySelector('#fontFile').files.length < 1) {
-    paperContentPadding =
-      pageElement1.style.paddingTop.replace(/px/g, '') || 5;
-    const newPadding = Number(paperContentPadding) - 5;
-    console.log("newPadding")
-    pageElement1.style.paddingTop = `${newPadding}px`;
-  }*/
+  
+  
+  
 }
 function addFontFromFile(fileObj) {
   const reader = new FileReader();
   reader.onload = (e) => {
     const newFont = new FontFace('temp-font', e.target.result);
-    console.log(newFont)
+    
     newFont.load().then((loadedFace) => {
-      console.log(loadedFace)
+      
       document.fonts.add(loadedFace);
       pageElement.style.fontFamily = 'temp-font';
-      console.log(e.target.result)
+      
       //document.body.style.setProperty('--handwritingFont', `${'temp-font'}`)
           
     });
@@ -333,7 +313,6 @@ function renderOutput(outputImages) {
   
     document.querySelector('#downloadpdfButton').classList.add('show');
     document.querySelector('#deleteAllButton').classList.add('show');
-    console.log(outputImages)
     document.querySelector('#output').innerHTML = outputImages
       .map(
         (outputImageCanvas, index) => /* html */ `
@@ -408,13 +387,12 @@ function renderOutput(outputImages) {
     applyPaperStyles()
     pageElement.scroll(0,0)
     const paperContentEl = document.querySelector('.paper .content');
-    console.log("hello")
+    
     const scrollHeight = paperContentEl.scrollHeight;
-    console.log(scrollHeight)
     const clientHeight = 514; // height of .paper-content when there is no content
 
     const totalPages = Math.ceil(scrollHeight / clientHeight);
-    console.log(totalPages)
+   
     /*const initialPaperContent = paperContentEl.innerHTML;
     console.log(initialPaperContent)
     const splitContent = initialPaperContent.split(/\s+/);
