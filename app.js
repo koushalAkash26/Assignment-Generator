@@ -107,7 +107,8 @@ let outputImages = [];
   '.paper .content': {
     on: 'paste',
     action:formatText
-    } 
+    }
+     
   
    }
 
@@ -119,6 +120,7 @@ for (const eventSelector in EVENT_MAP) {
         EVENT_MAP[eventSelector].action
       );
 }
+
 function verticalAlign(val){
   
   if(parseInt(val)<0){
@@ -136,11 +138,20 @@ function verticalAlign(val){
 
 function formatText(event) {
   event.preventDefault();
+  console.log("heyy")
   const text = event.clipboardData
   .getData('text/plain')
   .replace(/\n/g, '<br/>');
   document.execCommand('insertHTML', false, text);
-  document.getElementsByClassName('left-margin-and-content')[0].style.setProperty('min-height' ,`${document.getElementsByClassName('content')[0].scrollHeight }px`)
+  let scValue=parseInt(document.getElementsByClassName('content')[0].scrollHeight)
+  console.log(scValue)
+  if(scValue<=514){
+  document.getElementsByClassName('left-margin-and-content')[0].style.setProperty('min-height' ,"514px")
+  }else{
+    let sizestore=Math.ceil(scValue/514)
+    document.getElementsByClassName('left-margin-and-content')[0].style.setProperty('min-height' ,`${sizestore*514 }px`)
+    console.log(`current scroll height=>${sizestore*514}`)
+  }
 }
 function deleteAll(){
   outputImages=[]
